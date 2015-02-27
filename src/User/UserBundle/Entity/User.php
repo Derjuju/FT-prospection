@@ -37,7 +37,7 @@ class User extends BaseUser {
     }
 
     public function __toString() {
-        if ($this->name and $this->firstname)
+        if ($this->name && $this->firstname)
             return ucfirst($this->firstname) . ' ' . ucfirst($this->name);
         return $this->username;
     }

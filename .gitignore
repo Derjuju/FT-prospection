@@ -3,3 +3,4 @@
 /app/config/parameters.yml
 /app/logs/
 /vendor/
+/web/bundles/

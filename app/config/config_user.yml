@@ -5,3 +5,4 @@ fos_user:
     user_class: User\UserBundle\Entity\User
     #group:
     #    group_class: User\UserBundle\Entity\UserGroup
+    
