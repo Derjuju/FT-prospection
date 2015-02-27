@@ -1,0 +1,50 @@
+<?php
+
+namespace User\UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+
+/**
+ * UserGroupTranslation
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Admin\AdminBundle\Entity\UserGroupTranslationRepository")
+ */
+class UserGroupTranslation
+{
+    
+     use ORMBehaviors\Translatable\Translation;
+    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="label", type="string", length=255)
+     */
+    private $label;
+
+
+    /**
+     * Set label
+     *
+     * @param string $label
+     * @return UserGroupTranslation
+     */
+    public function setlabel($label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * Get label
+     *
+     * @return string 
+     */
+    public function getlabel()
+    {
+        return $this->label;
+    }
+}

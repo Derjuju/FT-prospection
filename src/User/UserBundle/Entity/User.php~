@@ -1,0 +1,62 @@
+<?php
+
+namespace User\UserBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+
+use Front\FrontBundle\Entity\Management;
+use Front\FrontBundle\Entity\Jaime;
+use Front\FrontBundle\Entity\Idea;
+use Front\FrontBundle\Entity\Comment;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="user")
+ */
+class User extends BaseUser {
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Front\FrontBundle\Entity\Idea", mappedBy="user")
+     */
+    protected $ideas;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Front\FrontBundle\Entity\Comment", mappedBy="user")
+     */
+    protected $comments;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Front\FrontBundle\Entity\Jaime", mappedBy="user")
+     */
+    protected $jaimes;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Front\FrontBundle\Entity\Management", inversedBy="users")
+     * @ORM\JoinColumn(name="management_id", referencedColumnName="id")
+     */
+    protected $management;
+
+
+    
+
+
+    public function __construct() {
+        parent::__construct();
+        
+        $this->ideas = new ArrayCollection();
+        $this->comments = new ArrayCollection();
+        $this->jaimes = new ArrayCollection();
+    }
+    
+    
+}
