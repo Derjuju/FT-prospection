@@ -1,9 +1,26 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        {% block head %}
+            <title>{% block title %}FT Prospection{% endblock %}</title>
+        {% endblock %}
+        
+        <meta name="description" content="FT Prospection">
+        <meta name="author" content="Freetouch Koba Digital">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        {% block stylesheets %}
+            <!-- Bootstrap core CSS -->
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/base.css') }}" />
+        {% endblock %}
+        
         <link rel="shortcut icon" type="image/x-icon"  href="{{ asset('favicon.ico') }}">
         <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('apple-touch-icon-57x57.png') }}">
         <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('apple-touch-icon-60x60.png') }}">
@@ -24,11 +41,33 @@
         <meta name="msapplication-config" content="{{ asset('browserconfig.xml') }}">
         <meta name="theme-color" content="#ffffff">
         
-        
+        {% block topJavascripts %}
+            <script src="{{ asset('js/vendor/jquery-1.11.1.min.js') }}"></script>
+            <script type="text/javascript">
+                var path_url = "{{ path('homepage') }}";
+            </script>
+        {% endblock %}
         
     </head>
     <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        
+        {% block bottomJavascripts %}
+            
+            <!-- Bootstrap core JavaScript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('js/vendor/docs.min.js') }}"></script>
+            <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+            <script src="{{ asset('js/vendor/ie10-viewport-bug-workaround.js') }}"></script>
+            
+            <script src="{{ asset('js/plugins.js') }}"></script>
+            <script src="{{ asset('js/main.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

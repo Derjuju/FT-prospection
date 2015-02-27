@@ -40,7 +40,7 @@ security:
                 use_referer:    true 
             logout:
                 path:   /logout
-                target: home
+                target: homepage
                 
 
     # with these settings you can restrict or allow access for different parts

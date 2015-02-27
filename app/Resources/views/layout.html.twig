@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+    {% block navigation %}
+        {% include 'interface/navigation.html.twig' %}
+    {% endblock %}
+    
+    {% block mainBlock %}
+    <div class="container-fluid">
+      <div class="row">
+          
+        {% block mainNav %}
+           {% include 'interface/sidebar.html.twig' %}
+        {% endblock %}
+        
+        {% block mainContent %}
+        {% endblock %}
+      </div>
+    </div>
+    {% endblock %}
+    
+{% endblock %}
